@@ -1,8 +1,11 @@
-# Creating the database
-CREATE DATABASE OnlineBookStore;
+-- Creating the database
 
+CREATE DATABASE OnlineBookStore;
 USE OnlineBookStore;
 
+
+
+-- Creating the tables
 DROP TABLE IF EXISTS Books;
 CREATE TABLE Books(
 	Book_ID INT PRIMARY KEY,
@@ -33,6 +36,31 @@ CREATE TABLE Orders(
     Quantity INT,
     Total_Amount NUMERIC(10,2)
 );
+
+
+SELECT * FROM Books;
+SELECT * FROM Customers;
+SELECT * FROM Orders;
+
+
+
+-- Basic questions
+
+-- 1) Retrieve all books in the "Fiction" genre.
+SELECT * FROM Books
+WHERE Genre = "Fiction";
+
+-- 2) Find books published after the year 1950.
+SELECT * FROM Books
+WHERE Published_Year > 1950;
+
+-- 3) List all customers from Canada.
+SELECT * FROM Customers
+WHERE Country = "Canada";
+
+-- 4) Show orders placed in November 2023.
+SELECT * FROM Orders
+WHERE MONTH(Order_Date) = 11 AND YEAR(Order_Date) = 2023;
 
 
 

@@ -86,4 +86,41 @@ SELECT DISTINCT Genre FROM Books;
 SELECT SUM(Total_Amount) AS Total_Revenue FROM Orders;
 
 
+-- Intermediate Questions
+
+-- 1) Retrieve the total number of books sold for each genre.
+SELECT Genre, SUM(Quantity) AS total_num
+FROM Books
+INNER JOIN Orders
+ON Books.Book_ID = Orders.Book_ID
+GROUP BY Genre;
+
+-- 2) Find the average price of books in the "Fantasy" genre.
+SELECT Genre, AVG(Price) AS Average_price
+FROM Books
+WHERE Genre = "Fantasy";
+
+-- 3) List name of customers who have placed at least 2 orders.
+SELECT Cmr.Customer_ID, Cmr.Name, COUNT(Ord.Order_ID) AS number_of_orders
+FROM Customers AS Cmr
+INNER JOIN Orders AS Ord
+On Cmr.Customer_ID = Ord.Customer_ID
+GROUP BY Customer_ID
+HAVING number_of_orders >= 2;
+
+-- 4) Find the most frequently ordered book.
+SELECT o.Book_ID,b.Title, COUNT(o.Order_ID) AS Total_Orders
+FROM Books AS b
+INNER JOIN Orders AS o
+ON b.Book_ID = o.Book_ID
+GROUP BY Book_ID
+ORDER BY Total_Orders DESC
+LIMIT 1;
+
+
+SELECT * FROM Books;
+SELECT * FROM Orders;
+SELECT * FROM Customers;
+
+
 

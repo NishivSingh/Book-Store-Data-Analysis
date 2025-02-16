@@ -16,3 +16,14 @@ JOIN Orders AS o
 ON b.Book_ID = o.Book_ID
 GROUP BY o.Customer_ID
 HAVING COUNT(DISTINCT b.Genre) = 1);
+
+-- 2) Find the most popular author based on revenue.
+WITH AuthorRevenue AS 
+(SELECT b.Author, SUM(o.Total_Amount) AS Total_Revenue
+FROM Books AS b
+JOIN Orders AS o
+ON b.Book_ID = o.Book_ID
+GROUP BY b.Author)
+SELECT Author, Total_Revenue
+FROM AuthorRevenue
+WHERE Total_Revenue = (SELECT MAX(Total_Revenue) FROM AuthorRevenue);

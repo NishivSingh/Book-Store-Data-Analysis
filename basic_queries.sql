@@ -39,7 +39,11 @@ SELECT DISTINCT Genre FROM Books;
 -- 10) Calculate total revenue generated from all orders.
 SELECT SUM(Total_Amount) AS Total_Revenue FROM Orders;
 
-
+-- 11) Find the total numbers of books published in each year.
+SELECT Published_Year, COUNT(Book_ID) AS Total_Books
+FROM Books
+GROUP BY Published_Year
+ORDER BY Published_Year DESC;
 
 
 

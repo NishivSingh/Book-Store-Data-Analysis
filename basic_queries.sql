@@ -45,5 +45,12 @@ FROM Books
 GROUP BY Published_Year
 ORDER BY Published_Year DESC;
 
+-- 12) Show the top 5 customers who spent the most money.
+SELECT Customer_ID, SUM(Total_Amount) AS Total_Spent
+FROM Orders
+GROUP BY Customer_ID
+ORDER BY Total_Spent DESC
+LIMIT 5;
+
 
 

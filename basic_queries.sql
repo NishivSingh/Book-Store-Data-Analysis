@@ -52,5 +52,9 @@ GROUP BY Customer_ID
 ORDER BY Total_Spent DESC
 LIMIT 5;
 
+-- 13) Retrieve the average price of books in each genre.
+SELECT Genre, AVG(Price) AS Average_Price
+FROM Books
+GROUP BY Genre;
 
 

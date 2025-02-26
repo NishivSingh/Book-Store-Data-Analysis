@@ -57,4 +57,9 @@ SELECT Genre, AVG(Price) AS Average_Price
 FROM Books
 GROUP BY Genre;
 
+-- 24) Find the total number of books in each genre.
+SELECT Genre, COUNT(Book_ID) AS Total_Books
+FROM Books
+GROUP BY Genre;
+
 

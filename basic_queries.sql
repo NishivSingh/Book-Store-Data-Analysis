@@ -69,4 +69,11 @@ GROUP BY Customer_ID
 ORDER BY Total_Orders DESC
 LIMIT 1;
 
+-- 16) Show the top 5 best-selling books.
+SELECT Book_ID, Title, SUM(Quantity) AS Total_Sold
+FROM Order_Details
+GROUP BY Book_ID
+ORDER BY Total_Sold DESC
+LIMIT 5;
+
 

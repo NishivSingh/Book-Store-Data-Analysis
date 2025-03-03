@@ -76,4 +76,10 @@ GROUP BY Book_ID
 ORDER BY Total_Sold DESC
 LIMIT 5;
 
+-- 17) Retrieve the total number of orders placed in each year.
+SELECT YEAR(Order_Date) AS Order_Year, COUNT(Order_ID) AS Total_Orders
+FROM Orders
+GROUP BY Order_Year
+ORDER BY Order_Year DESC;
+
 

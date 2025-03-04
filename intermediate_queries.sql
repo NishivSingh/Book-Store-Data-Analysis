@@ -75,3 +75,31 @@ FROM Books AS b
 LEFT JOIN Orders AS o
 ON b.Book_ID = o.Book_ID
 GROUP BY b.Book_ID;
+
+
+-- 10) Find the customer who placed the most orders.
+SELECT Customer_ID, COUNT(Order_ID) AS Total_Orders
+FROM Orders
+GROUP BY Customer_ID
+ORDER BY Total_Orders DESC
+LIMIT 1;
+
+-- 11) Show the top 5 best-selling books.
+SELECT Book_ID, Title, SUM(Quantity) AS Total_Sold
+FROM Order_Details
+GROUP BY Book_ID
+ORDER BY Total_Sold DESC
+LIMIT 5;
+
+-- 12) Retrieve the total number of orders placed in each year.
+SELECT YEAR(Order_Date) AS Order_Year, COUNT(Order_ID) AS Total_Orders
+FROM Orders
+GROUP BY Order_Year
+ORDER BY Order_Year DESC;
+
+-- 13) Find the customer who spent the most money in a single order.
+SELECT Customer_ID, MAX(Total_Amount) AS Max_Spent
+FROM Orders
+GROUP BY Customer_ID
+ORDER BY Max_Spent DESC
+LIMIT 1;

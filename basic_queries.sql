@@ -62,24 +62,4 @@ SELECT Genre, COUNT(Book_ID) AS Total_Books
 FROM Books
 GROUP BY Genre;
 
--- 15) Find the customer who placed the most orders.
-SELECT Customer_ID, COUNT(Order_ID) AS Total_Orders
-FROM Orders
-GROUP BY Customer_ID
-ORDER BY Total_Orders DESC
-LIMIT 1;
-
--- 16) Show the top 5 best-selling books.
-SELECT Book_ID, Title, SUM(Quantity) AS Total_Sold
-FROM Order_Details
-GROUP BY Book_ID
-ORDER BY Total_Sold DESC
-LIMIT 5;
-
--- 17) Retrieve the total number of orders placed in each year.
-SELECT YEAR(Order_Date) AS Order_Year, COUNT(Order_ID) AS Total_Orders
-FROM Orders
-GROUP BY Order_Year
-ORDER BY Order_Year DESC;
-
 

@@ -96,10 +96,3 @@ SELECT YEAR(Order_Date) AS Order_Year, COUNT(Order_ID) AS Total_Orders
 FROM Orders
 GROUP BY Order_Year
 ORDER BY Order_Year DESC;
-
--- 13) Find the customer who spent the most money in a single order.
-SELECT Customer_ID, MAX(Total_Amount) AS Max_Spent
-FROM Orders
-GROUP BY Customer_ID
-ORDER BY Max_Spent DESC
-LIMIT 1;

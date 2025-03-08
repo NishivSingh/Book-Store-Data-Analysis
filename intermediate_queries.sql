@@ -103,3 +103,11 @@ FROM Books AS b
 INNER JOIN Orders AS o
 ON b.Book_ID = o.Book_ID
 GROUP BY Author;
+
+-- 14) List the customers who have spent over $100 in total.
+SELECT c.Customer_ID, c.Name, SUM(o.Total_Amount) AS Total_Spent
+FROM Customers AS c
+INNER JOIN Orders AS o
+ON c.Customer_ID = o.Customer_ID
+GROUP BY c.Customer_ID
+HAVING Total_Spent > 100;

@@ -119,3 +119,12 @@ WHERE YEAR(Order_Date) = 2020
 GROUP BY Customer_ID
 ORDER BY Total_Orders DESC
 LIMIT 1;
+
+-- 16) Show the top 3 best-selling authors.
+SELECT b.Author, SUM(o.Quantity) AS Total_Sold
+FROM Books AS b
+INNER JOIN Orders AS o
+ON b.Book_ID = o.Book_ID
+GROUP BY Author
+ORDER BY Total_Sold DESC
+LIMIT 3;

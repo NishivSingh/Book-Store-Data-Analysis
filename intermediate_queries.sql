@@ -128,3 +128,8 @@ ON b.Book_ID = o.Book_ID
 GROUP BY Author
 ORDER BY Total_Sold DESC
 LIMIT 3;
+
+--17) Retrieve the total number of orders placed by each customer.
+SELECT Customer_ID, COUNT(Order_ID) AS Total_Orders
+FROM Orders
+GROUP BY Customer_ID;

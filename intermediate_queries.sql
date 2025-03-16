@@ -148,3 +148,11 @@ INNER JOIN Orders AS o
 ON c.Customer_ID = o.Customer_ID
 GROUP BY c.Customer_ID
 HAVING Total_Spent > 200;
+
+-- 20) Find the customer who placed the most orders in 2021.
+SELECT Customer_ID, COUNT(Order_ID) AS Total_Orders
+FROM Orders
+WHERE YEAR(Order_Date) = 2021
+GROUP BY Customer_ID
+ORDER BY Total_Orders DESC
+LIMIT 1;

@@ -156,3 +156,12 @@ WHERE YEAR(Order_Date) = 2021
 GROUP BY Customer_ID
 ORDER BY Total_Orders DESC
 LIMIT 1;
+
+-- 21) Show the top 3 best-selling genres.
+SELECT b.Genre, SUM(o.Quantity) AS Total_Sold
+FROM Books AS b
+INNER JOIN Orders AS o
+ON b.Book_ID = o.Book_ID
+GROUP BY Genre
+ORDER BY Total_Sold DESC
+LIMIT 3;
